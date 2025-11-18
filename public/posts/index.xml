@@ -9,11 +9,11 @@
     <lastBuildDate>Tue, 18 Nov 2025 10:32:09 +0200</lastBuildDate>
     <atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>My First Post</title>
-      <link>http://localhost:1313/posts/my-first-post/</link>
+      <title>Articles I Loved</title>
+      <link>http://localhost:1313/posts/articles_i_loved/</link>
       <pubDate>Tue, 18 Nov 2025 10:32:09 +0200</pubDate>
-      <guid>http://localhost:1313/posts/my-first-post/</guid>
-      <description>intro this is bold text&#xA;visit the hugo website!</description>
+      <guid>http://localhost:1313/posts/articles_i_loved/</guid>
+      <description>Intro This is a list of articles that I loved. Maybe in the future I&amp;rsquo;ll sort these by subject :)&#xA;Articles I loved Mastering Programming - Kent Beck </description>
     </item>
   </channel>
 </rss>
