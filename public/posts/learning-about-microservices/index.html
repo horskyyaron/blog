@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Learning About Microservices | Yaron Horsky</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="This is a ongoing summary of the book &ldquo;Building Microservices&rdquo; by Sam Neuman.
+Chapter 1 - What are microservices From the book:
+Microservices are small, autonomous services that work toggether.
+Breaking it down we get:
+Small - in terms of code base and team. Autonomous - separate entities, deployed as a independent service. Communication between services are through network calls.
+Thoughts are made about what is exposed vs hidden.
+Key Benefits Technology Heterogeneity Since each service is independent, we can choose the right tools for the job, for example:">
+    <meta name="generator" content="Hugo 0.129.0">
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.css" >
+
+
+
+
+    
+
+
+    
+      
+
+    
+
+    
+
+    
+      <link rel="canonical" href="http://localhost:1313/posts/learning-about-microservices/">
+    
+
+    <meta property="og:url" content="http://localhost:1313/posts/learning-about-microservices/">
+  <meta property="og:site_name" content="Yaron Horsky">
+  <meta property="og:title" content="Learning About Microservices">
+  <meta property="og:description" content="This is a ongoing summary of the book “Building Microservices” by Sam Neuman.
+Chapter 1 - What are microservices From the book:
+Microservices are small, autonomous services that work toggether.
+Breaking it down we get:
+Small - in terms of code base and team. Autonomous - separate entities, deployed as a independent service. Communication between services are through network calls.
+Thoughts are made about what is exposed vs hidden.
+Key Benefits Technology Heterogeneity Since each service is independent, we can choose the right tools for the job, for example:">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-11-19T10:03:53+02:00">
+    <meta property="article:modified_time" content="2025-11-19T10:03:53+02:00">
+
+  <meta itemprop="name" content="Learning About Microservices">
+  <meta itemprop="description" content="This is a ongoing summary of the book “Building Microservices” by Sam Neuman.
+Chapter 1 - What are microservices From the book:
+Microservices are small, autonomous services that work toggether.
+Breaking it down we get:
+Small - in terms of code base and team. Autonomous - separate entities, deployed as a independent service. Communication between services are through network calls.
+Thoughts are made about what is exposed vs hidden.
+Key Benefits Technology Heterogeneity Since each service is independent, we can choose the right tools for the job, for example:">
+  <meta itemprop="datePublished" content="2025-11-19T10:03:53+02:00">
+  <meta itemprop="dateModified" content="2025-11-19T10:03:53+02:00">
+  <meta itemprop="wordCount" content="207">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Learning About Microservices">
+  <meta name="twitter:description" content="This is a ongoing summary of the book “Building Microservices” by Sam Neuman.
+Chapter 1 - What are microservices From the book:
+Microservices are small, autonomous services that work toggether.
+Breaking it down we get:
+Small - in terms of code base and team. Autonomous - separate entities, deployed as a independent service. Communication between services are through network calls.
+Thoughts are made about what is exposed vs hidden.
+Key Benefits Technology Heterogeneity Since each service is independent, we can choose the right tools for the job, for example:">
+
+	
+  </head><body class="ma0 avenir bg-near-white development">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l center items-center justify-between">
+    <a href="/" class="f3 fw2 hover-white white-90 dib no-underline">
+      
+        Yaron Horsky
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+      <div class="ananke-socials"></div>
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  
+  <article class="flex-l mw8 center ph3 flex-wrap justify-between">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked ttu">
+          
+        Posts
+      </aside><div id="sharing" class="mt3 ananke-socials"></div>
+<h1 class="f1 athelas mt3 mb1">Learning About Microservices</h1>
+      
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2025-11-19T10:03:53+02:00">November 19, 2025</time>
+      
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-two-thirds-l"><p>This is a ongoing summary of the book <em>&ldquo;Building Microservices&rdquo;</em> by Sam Neuman.</p>
+<h1 id="chapter-1---what-are-microservices">Chapter 1 - What are microservices</h1>
+<p>From the book:</p>
+<blockquote>
+<p>Microservices are small, autonomous services that work toggether.</p>
+</blockquote>
+<p>Breaking it down we get:</p>
+<ul>
+<li>Small - in terms of code base and team.</li>
+<li>Autonomous - separate entities, deployed as a independent service.</li>
+</ul>
+<p>Communication between services are through network calls.</p>
+<p>Thoughts are made about what is exposed vs hidden.</p>
+<h2 id="key-benefits">Key Benefits</h2>
+<h3 id="technology-heterogeneity">Technology Heterogeneity</h3>
+<p>Since each service is independent, we can choose the right tools for the job,
+for example:</p>
+<ul>
+<li>database</li>
+<li>language</li>
+</ul>
+<h3 id="resilience">Resilience</h3>
+<p>One service going down won&rsquo;t make the whole system crash.
+NOTE: the system should be ready for this cases and handle them correctly.</p>
+<h3 id="scaling">Scaling</h3>
+<p>With smaller services, in contrast to monolith, we can just scale the part of the system that
+requires more resources.</p>
+<h3 id="ease-of-deployment">Ease of deployment</h3>
+<p>We can deploy just the service that changes were made in, not the whole system.</p>
+<h3 id="optimize-for-replaceability">Optimize for replaceability</h3>
+<p>The cost of replacing one service is not that expensive since it is small in size
+and complexity.
+And since requirements are being changed all the time, and new technology is being
+created all the time, the system must be ready to embrace changes!
+Microservices are optimize for that uncertainty</p>
+<ul class="pa0">
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white white-70 dn dib-ns pv2 ph3 no-underline" href="http://localhost:1313/" >
+    &copy;  Yaron Horsky 2025 
+  </a>
+    <div><div class="ananke-socials"></div>
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>
