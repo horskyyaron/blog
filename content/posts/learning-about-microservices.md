@@ -53,4 +53,51 @@ And since requirements are being changed all the time, and new technology is bei
 created all the time, the system must be ready to embrace changes!
 Microservices are optimize for that uncertainty
 
+## Chapter 2 - The Evolutionary Architect
+
+The term "Architect" has problems in the world of software.
+It was borrowed from an existing profession when the architect has accountability
+for example: if the building collapsed, the architect is the responsible persona.
+
+But with software, things change over time, all the time, so you can't have a "correct"
+timeless solution, since the future is unknown.
+
+When we create documentation, and diagrams on diagrams describing the perfect system, that is a lie.
+
+We should think of ourselves as 'City planner' as we care about zones in the system.
+
+Requirements and resources are rapidly changing (money, technology)
+
+Once our product reaches the client, we will reveal how the user actually uses the product,
+and what we thought will be the main part of the system, might not be, thus we need
+to differently allocate our resources.
+
+We should plan to allow for changes.
+
+Avoid over specifying things.
+
+> the system should be habitable for developers to
+
+We should worry less about what happen inside the zones and more between the zones.
+How do they talk to each other.
+
+### Principled approach
+
+In Microservices we have many decisions we can make: database, language, this framework or the other.
+
+What should we do then? Framing
+
+We should set principles and practices. 
+
+Principles - set of rules we made in order to achieve some larger goal.
+Practices - how we ensure our principles are being carried out. a set of detailed practice
+guidance for preforming a task.
+
+Defining the required standard - what is a good citizen?
+
+- monitoring (system health, push vs pull approaches)
+- interfaces. (HTTP, verbs or nouns? pagination resources? Versioning of endpoint?)
+- safety. 
+
+
 
