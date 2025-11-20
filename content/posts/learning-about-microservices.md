@@ -53,7 +53,7 @@ And since requirements are being changed all the time, and new technology is bei
 created all the time, the system must be ready to embrace changes!
 Microservices are optimize for that uncertainty
 
-## Chapter 2 - The Evolutionary Architect
+# Chapter 2 - The Evolutionary Architect
 
 The term "Architect" has problems in the world of software.
 It was borrowed from an existing profession when the architect has accountability
@@ -81,7 +81,7 @@ Avoid over specifying things.
 We should worry less about what happen inside the zones and more between the zones.
 How do they talk to each other.
 
-### Principled approach
+## Principled approach
 
 In Microservices we have many decisions we can make: database, language, this framework or the other.
 
@@ -99,5 +99,192 @@ Defining the required standard - what is a good citizen?
 - interfaces. (HTTP, verbs or nouns? pagination resources? Versioning of endpoint?)
 - safety. 
 
+# Chapter 3 - How to model services
+
+How to think about the boundaries of our microservices.
+
+## What makes a good service?
+
+1. loosely coupled
+2. high in cohesion
+
+### loose coupling
+
+A Change in one service does not require a change in another.
+
+A loosely coupled service knows as little as it needs about services it collaborates with.
+
+Thus, we'll probably want to limit the number of different calls from one service to another.
+This will reduce the change for tight coupling.
+
+### High cohesion
+
+Related behavior will sit together while different behavior sit elsewhere.
+
+So we need to find boundaries in our problem domain that will help ensure that 
+services of related behavior sits together.
+
+## The bounded context
+
+Any domain consists of multiple bounded contexts.
+Each has its own explicit interface, deciding what to share with other contexts.
+
+In `Domain-Driven-Design` book, Evans uses the metaphor of a cell.
+
+> cell can exist because their membraned define what is in and out and determine what can pass
+
+Example of bounded context, Warehouse department and Finance department.
+
+### Shared and hidden models
+
+A warehouse department has knowledge that only interest himself, e.g. number of
+forklifts it has.
+But it also has knowledge that interest other services such as the finance department
+say list of the inventory.
+
+Thus, the *stock item* becomes a shared model.
+
+But the stock item in the warehouse context can have a representation different that one in the finance team.
+So there is an *internal representation* and *external representation* .
+
+A simple example:
+
+Say a shared model is user:
+
+```javascript
+{
+  "id": "u123",
+  "name": "Yaron"
+}
+```
+
+Authentication service internal representation:
 
 
+```javascript
+{
+  "userId": "u123",
+  "fullName": "Yaron Horsky",
+  "passwordHash": "6fsd09dfj0932fjsd9f...",
+  "lastLoginAt": "2025-11-20T10:00:00Z",
+  "failedLoginAttempts": 3
+}
+```
+
+Notification service representation:
+
+```javascript
+{
+  "id": "u123",
+  "displayName": "Yaron",
+  "email": "yaron@example.com",
+  "emailOptIn": true,
+  "preferredLanguage": "en"
+}
+```
+
+Sometimes models can mean very different things depending on the context being used.
+For example *Order*:
+
+Payment Service context:
+
+```javascript
+{
+  "orderId": "o123",
+  "totalAmount": 124.90,
+  "currency": "USD",
+  "paymentStatus": "PENDING"
+}
+```
+
+Order Service context:
+
+```javascript
+{
+  "orderId": "o123",
+  "customerId": "c1",
+  "items": [
+    { "sku": "x", "quantity": 2 }
+  ],
+  "status": "PLACED"
+}
+```
+
+Shipping Service context
+
+```javascript
+{
+  "orderId": "o123",
+  "address": {
+    "street": "...",
+    "city": "...",
+    "country": "IL"
+  },
+  "weight": 5.4,
+  "shippingStatus": "READY_TO_SHIP"
+}
+
+```
+
+### Premature decomposition
+
+Premature decomposition can be costly.
+It is much easier to start with one code base and then split it than thinking ahead 
+and split first.
+
+## Business capabilities
+
+We should think about context capabilities and not data that is shared.
+
+E.g an *Ordering Service*, these are some capabilities that interests us:
+
+* creating an order
+* validate item availability
+* apply business rules (discount, limits)
+* change order state
+* etc..
+
+It exposes *behaviors* like:
+
+```HTTP
+POST /orders/validate
+POST /orders/confirm
+POST /orders/cancel
+```
+
+This is a bounded context. The order data is not the main issue, but the capabilities of the
+service are.
+
+VS the anemic version, a CRUD version of the same *Ordering Service*:
+
+```HTTP
+GET /orders/:id
+POST /orders
+PUT /orders/:id
+DELETE /orders/:id
+```
+
+This is basically db with a wrapper.
+
+Why this is bad?
+
+- other services needs to implement the business rules
+- high coupling: the one that writes the data controls behavior
+- the core is the data, not the capabilities
+
+## Communication in terms of business concepts
+
+Changes are often about changes the business wants to make to how the system
+behaves. We are changing capabilities exposed to our customers.
+
+If the system is decomposed by bounded context of our domain, changes are local 
+and isolated.
+
+Thus its important to think of the communication in terms of business concepts.
+
+It can be useful to think of forms being sent between these microservices, much
+as forms are sent around an organization.
+
+An example of form passing - Loan Application
+
+Loan application Service -> credit check service -> risk service -> approval service -> payout service 
