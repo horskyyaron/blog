@@ -6,8 +6,15 @@
     <description>Recent content on Yaron Horsky</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 19 Nov 2025 10:03:53 +0200</lastBuildDate>
+    <lastBuildDate>Thu, 20 Nov 2025 13:40:37 +0200</lastBuildDate>
     <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Yws</title>
+      <link>http://localhost:1313/posts/yws/</link>
+      <pubDate>Thu, 20 Nov 2025 13:40:37 +0200</pubDate>
+      <guid>http://localhost:1313/posts/yws/</guid>
+      <description>YWS The Goal: creating a local &amp;ldquo;aws-ish&amp;rdquo; so i can play with these tools locally before &amp;ldquo;commiting&amp;rdquo; to the tools in the cloud which costs money.&#xA;Why? This will help me learn about these subjects, implementing and creating is the best way to learn. also very fun :)</description>
+    </item>
     <item>
       <title>Learning About Microservices</title>
       <link>http://localhost:1313/posts/learning-about-microservices/</link>
