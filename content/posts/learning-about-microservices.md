@@ -480,4 +480,3 @@ Find the core concept that are important to your domain, it will front the CRM
 expose simple REST API and we can integrate using this service
 this is a called a facade
 
-
