@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width,minimum-scale=1">
     <meta name="description" content="This is a ongoing summary of the book &ldquo;Building Microservices&rdquo; by Sam Neuman.
 Chapter 1 - What are microservices From the book:
-Microservices are small, autonomous services that work toggether.
+Microservices are small, autonomous services that work together.
 Breaking it down we get:
 Small - in terms of code base and team. Autonomous - separate entities, deployed as a independent service. Communication between services are through network calls.
 Thoughts are made about what is exposed vs hidden.
@@ -46,7 +46,7 @@ Key Benefits Technology Heterogeneity Since each service is independent, we can 
   <meta property="og:title" content="Learning About Microservices">
   <meta property="og:description" content="This is a ongoing summary of the book “Building Microservices” by Sam Neuman.
 Chapter 1 - What are microservices From the book:
-Microservices are small, autonomous services that work toggether.
+Microservices are small, autonomous services that work together.
 Breaking it down we get:
 Small - in terms of code base and team. Autonomous - separate entities, deployed as a independent service. Communication between services are through network calls.
 Thoughts are made about what is exposed vs hidden.
@@ -60,19 +60,19 @@ Key Benefits Technology Heterogeneity Since each service is independent, we can 
   <meta itemprop="name" content="Learning About Microservices">
   <meta itemprop="description" content="This is a ongoing summary of the book “Building Microservices” by Sam Neuman.
 Chapter 1 - What are microservices From the book:
-Microservices are small, autonomous services that work toggether.
+Microservices are small, autonomous services that work together.
 Breaking it down we get:
 Small - in terms of code base and team. Autonomous - separate entities, deployed as a independent service. Communication between services are through network calls.
 Thoughts are made about what is exposed vs hidden.
 Key Benefits Technology Heterogeneity Since each service is independent, we can choose the right tools for the job, for example:">
   <meta itemprop="datePublished" content="2025-11-19T10:03:53+02:00">
   <meta itemprop="dateModified" content="2025-11-19T10:03:53+02:00">
-  <meta itemprop="wordCount" content="1102">
+  <meta itemprop="wordCount" content="2244">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Learning About Microservices">
   <meta name="twitter:description" content="This is a ongoing summary of the book “Building Microservices” by Sam Neuman.
 Chapter 1 - What are microservices From the book:
-Microservices are small, autonomous services that work toggether.
+Microservices are small, autonomous services that work together.
 Breaking it down we get:
 Small - in terms of code base and team. Autonomous - separate entities, deployed as a independent service. Communication between services are through network calls.
 Thoughts are made about what is exposed vs hidden.
@@ -133,7 +133,7 @@ Key Benefits Technology Heterogeneity Since each service is independent, we can 
 <h1 id="chapter-1---what-are-microservices">Chapter 1 - What are microservices</h1>
 <p>From the book:</p>
 <blockquote>
-<p>Microservices are small, autonomous services that work toggether.</p>
+<p>Microservices are small, autonomous services that work together.</p>
 </blockquote>
 <p>Breaking it down we get:</p>
 <ul>
@@ -188,7 +188,7 @@ How do they talk to each other.</p>
 <p>What should we do then? Framing</p>
 <p>We should set principles and practices.</p>
 <p>Principles - set of rules we made in order to achieve some larger goal.
-Practices - how we ensure our principles are being carried out. a set of detailed practice
+Practices - how we ensure our principles are being carried out. A set of detailed practice
 guidance for preforming a task.</p>
 <p>Defining the required standard - what is a good citizen?</p>
 <ul>
@@ -321,6 +321,149 @@ and isolated.</p>
 as forms are sent around an organization.</p>
 <p>An example of form passing - Loan Application</p>
 <p>Loan application Service -&gt; credit check service -&gt; risk service -&gt; approval service -&gt; payout service</p>
+<h1 id="chapter-4---integration">Chapter 4 - Integration</h1>
+<p>Getting integration right is key to make microservices hold their benefits, otherwise
+a disaster is coming.</p>
+<h2 id="what-is-the-best-integration-technology">What is the best integration technology?</h2>
+<ul>
+<li>avoid breaking changes. e.g. some ms add a new field to a piece of data it sends,
+existing consumers shouldn&rsquo;t be impacted.</li>
+<li>Technology-Agnostic API - since changes are coming, this is a fact, it is important
+that the communication between microservices won&rsquo;t need major changes.</li>
+<li>Make services simple for consumers - we would like to allow the consumers to choose
+whatever tech they want, such that the communication with this service won&rsquo;t affect that
+choice or restrict it.</li>
+<li>Hide implementation detail - consumers shouldn&rsquo;t be bound to the service internal implementation.
+This is tightly coupled. Any technology that makes us expose these details should be avoided.</li>
+</ul>
+<h2 id="the-shared-database">The shared database</h2>
+<p>This is bad!</p>
+<ul>
+<li>Allowing external parties view internal implementation details.</li>
+<li>Changes to the schema breaks consumers.</li>
+<li>Consumers are bound to specific technology choice (relational db for example) (tightly coupled)</li>
+<li>where is the logic? logic is spread across multiple consumers. (no cohesion)</li>
+</ul>
+<p>Database integration makes it easy to share data, but doesn&rsquo;t share behavior.</p>
+<h2 id="sync-vs-async">Sync vs Async</h2>
+<p>Async can be useful for long running tasks.
+Firing requests and assuming they worked allows us to update the UI quickly
+give the user a better experience, and later updating when the tasks end and we get the response.</p>
+<p>There are 2 different types of collaboration:</p>
+<ul>
+<li>request/response</li>
+<li>event-based</li>
+</ul>
+<p>Event based is saying that &ldquo;something appended&rdquo; and the parties that care about it
+will do stuff accordingly.</p>
+<p>Another benefit of event-based collaboration is that it is highly decoupled.</p>
+<h2 id="orchestration-vs-choreography">Orchestration vs choreography</h2>
+<p>Complex system requires processes that spans over multiple parts of the system,
+more than the boundary of one service.</p>
+<p><strong>Orchestration</strong>: relying on one central point which guide and drive the process.
+Like the conductor in an orchestra.</p>
+<p><strong>Choreography</strong>: we tell each part of its job, and let it work out the details.
+Like a ballet dancer reacting to others around them.</p>
+<p>Example scenario:</p>
+<p>When a new user is created, we</p>
+<ol>
+<li>send an email</li>
+<li>we post a thank you note</li>
+</ol>
+<p>Each of these is handled through a different service: email service and post service</p>
+<p>Downside of Orchestration is that it becomes too much of a center.</p>
+<p>With Choreography approach, the customer service emit an event in an async manner
+saying that a new customer has been created
+The downside here is that the explicit process is implicit in our solution,
+meaning we need to somehow track to tell if the process has indeed finished successfully.
+A good solution here is to build a monitoring system that explicitly matches the business process.</p>
+<h2 id="remote-procedure-calls-rpc">Remote Procedure calls (RPC)</h2>
+<p>I need to read more about it.</p>
+<h2 id="rest">REST</h2>
+<p>REpresentational State Transfer (REST) is in a architectural style inspired by the Web.</p>
+<p>Resource - a thing that the service know about (like a Customer)
+the server create different representation of this resource on a request.
+How this resource is exposed is decouple from how it look internally.</p>
+<p>E.g. a client ask for a JSON representation while the resource internally is being
+kept in a relational db.</p>
+<h3 id="rest-and-http">REST and HTTP</h3>
+<p>HTTP protocol goes well with REST style, e.g. http verbs.
+HTTP also bring a lot of tooling with it. Some allows for better security.</p>
+<p>For server-to-server communication if extremely low latency or small size is important,
+we will use TCP instead of http.</p>
+<p>Overall REST over HTTP is the default choice for service-to-service communication today.</p>
+<h2 id="implementing-async-event-based-collaboration">Implementing Async event-based collaboration</h2>
+<h3 id="technology-choices">Technology choices</h3>
+<p>Two main parts:</p>
+<ol>
+<li>a way to emit events</li>
+<li>a way for consumers to find out these events happened.</li>
+</ol>
+<p>One solution - a massage broker. Like RabbitMQ.
+Keep your middleware (where the messages pass) dumb, keep the logic at the ends.</p>
+<h3 id="complexities">Complexities</h3>
+<p>You need to think about failures and how to treat them, for example,
+say the response comes back, does it return to the same node it came out of?
+What if that node is down?
+It Is important to have monitoring and the use of correlation IDs is recommended
+so we can track a sequence of requests across services.</p>
+<h2 id="services-as-state-machines">Services as state machines</h2>
+<p>We want to avoid dumb services that are CRUD wrappers.
+Having the life cycle of key domain concept explicit modeled is pretty powerful.</p>
+<h2 id="access-by-reference">Access by reference</h2>
+<p>We need to know that the microservices for Customer hold all of the entity lifecycle.
+This also needs to be the source of truth for the customer.</p>
+<p>It is possible that after we ask for a Customer, while it is in our hands, the
+entity has changed.
+If we avoid requesting data more than we need, our system will be much more efficient.</p>
+<p>Example: we ask the email service to send an email when an order has been shipped.</p>
+<p><strong>bad</strong>: we can send the email service the order details with the customer information.
+if the email is pulling these from a queue, while the requests waits there, things change.
+<strong>good</strong>: a better alternative is to send URI for the <em>Customer</em> and <em>Order</em> resources and the
+email service will look them up when it is time.</p>
+<h2 id="versioning">Versioning</h2>
+<ul>
+<li>postpone until you must</li>
+<li>semantic versioning MAJOR.MINOR.PATCH</li>
+</ul>
+<p>MAJOR change - breaking changes has been made.
+MINOR change - new functionality has been added, should support backwards compatibility
+PATCH change - bug fix for existing features.</p>
+<ul>
+<li>coexist different endpoints
+gradually moving into a new service.
+Expand and contract pattern.
+We expand with a new service, once everyone is using the new one,
+we contract and remove the old service</li>
+</ul>
+<p>One way is adding version number to the URI. e.g. <code>/v1/customer/</code> or <code>/v2/customer</code></p>
+<ul>
+<li>using multiple concurrent service versions</li>
+</ul>
+<h2 id="user-interface-ui">User Interface (UI)</h2>
+<p>The user can interact with our application through different kinds of devices:
+mobile phone, web, tablet, computer.</p>
+<p>Each device has constraint, e.g. you can&rsquo;t right click on a phone for example.
+Or some activities are battery draining.</p>
+<p>Thus, there is a need to handle those differences between each type of interface</p>
+<h3 id="backends-for-frontends">backends for frontends</h3>
+<p>One way to handle chatty interface is to have one endpoint in a gateway that
+will fetch all of the data from the different services</p>
+<p>another model is to have a server for each user interface</p>
+<p>Mobile app - mobile backend
+website - website backend
+helpdesk - helpdesk backend</p>
+<p>if there is an api authentication and auth layer, we can put this layer
+for all backends before it reaches them</p>
+<h2 id="integrating-3rd-party-software">Integrating 3rd party software</h2>
+<p>Author advice, if it is unique for the business that we are building, build it, otherwise
+there is no reason for you to develop, just buy the current existing tool for the job.
+Examples: CRM, CMS</p>
+<h3 id="customization">Customization</h3>
+<p>Sometimes, these services requires heavy customization
+Find the core concept that are important to your domain, it will front the CRM
+expose simple REST API and we can integrate using this service
+this is a called a facade</p>
 <ul class="pa0">
   
 </ul>

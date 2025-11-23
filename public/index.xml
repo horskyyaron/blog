@@ -2,32 +2,39 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Yaron Horsky</title>
-    <link>https://example.org/</link>
+    <link>http://localhost:1313/</link>
     <description>Recent content on Yaron Horsky</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 20 Nov 2025 13:40:37 +0200</lastBuildDate>
-    <atom:link href="https://example.org/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 22 Nov 2025 17:27:01 +0200</lastBuildDate>
+    <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Sqs vs Sns</title>
+      <link>http://localhost:1313/posts/sqs-vs-sns/</link>
+      <pubDate>Sat, 22 Nov 2025 17:27:01 +0200</pubDate>
+      <guid>http://localhost:1313/posts/sqs-vs-sns/</guid>
+      <description>Queus vs Pub/Sub As the journey of learning about microservice continues, there is a concept of async collaboration between services.&#xA;Why is that important? Async communication allows for long running process to not block the client. It allows for snappier, better user experience since we will update the client/UI immediately, and return the calculated answer later.&#xA;E.g. sending the client an email. The user signs up, and as a part of the process we send the user an email.</description>
+    </item>
     <item>
       <title>Yws</title>
-      <link>https://example.org/posts/yws/</link>
+      <link>http://localhost:1313/posts/yws/</link>
       <pubDate>Thu, 20 Nov 2025 13:40:37 +0200</pubDate>
-      <guid>https://example.org/posts/yws/</guid>
-      <description>&lt;h1 id=&#34;yws&#34;&gt;YWS&lt;/h1&gt;&#xA;&lt;p&gt;The Goal: creating a local &amp;ldquo;aws-ish&amp;rdquo; so i can play with these tools locally before &amp;ldquo;commiting&amp;rdquo;&#xA;to the tools in the cloud which costs money.&lt;/p&gt;&#xA;&lt;p&gt;Why?&#xA;This will help me learn about these subjects, implementing and creating is the best way to learn.&#xA;also very fun :)&lt;/p&gt;</description>
+      <guid>http://localhost:1313/posts/yws/</guid>
+      <description>YWS The Goal: creating a local &amp;ldquo;aws-ish&amp;rdquo; so i can play with these tools locally before &amp;ldquo;commiting&amp;rdquo; to the tools in the cloud which costs money.&#xA;Why? This will help me learn about these subjects, implementing and creating is the best way to learn. also very fun :)</description>
     </item>
     <item>
       <title>Learning About Microservices</title>
-      <link>https://example.org/posts/learning-about-microservices/</link>
+      <link>http://localhost:1313/posts/learning-about-microservices/</link>
       <pubDate>Wed, 19 Nov 2025 10:03:53 +0200</pubDate>
-      <guid>https://example.org/posts/learning-about-microservices/</guid>
-      <description>&lt;p&gt;This is a ongoing summary of the book &lt;em&gt;&amp;ldquo;Building Microservices&amp;rdquo;&lt;/em&gt; by Sam Neuman.&lt;/p&gt;&#xA;&lt;h1 id=&#34;chapter-1---what-are-microservices&#34;&gt;Chapter 1 - What are microservices&lt;/h1&gt;&#xA;&lt;p&gt;From the book:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;Microservices are small, autonomous services that work together.&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;Breaking it down we get:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Small - in terms of code base and team.&lt;/li&gt;&#xA;&lt;li&gt;Autonomous - separate entities, deployed as a independent service.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;Communication between services are through network calls.&lt;/p&gt;&#xA;&lt;p&gt;Thoughts are made about what is exposed vs hidden.&lt;/p&gt;&#xA;&lt;h2 id=&#34;key-benefits&#34;&gt;Key Benefits&lt;/h2&gt;&#xA;&lt;h3 id=&#34;technology-heterogeneity&#34;&gt;Technology Heterogeneity&lt;/h3&gt;&#xA;&lt;p&gt;Since each service is independent, we can choose the right tools for the job,&#xA;for example:&lt;/p&gt;</description>
+      <guid>http://localhost:1313/posts/learning-about-microservices/</guid>
+      <description>This is a ongoing summary of the book &amp;ldquo;Building Microservices&amp;rdquo; by Sam Neuman.&#xA;Chapter 1 - What are microservices From the book:&#xA;Microservices are small, autonomous services that work together.&#xA;Breaking it down we get:&#xA;Small - in terms of code base and team. Autonomous - separate entities, deployed as a independent service. Communication between services are through network calls.&#xA;Thoughts are made about what is exposed vs hidden.&#xA;Key Benefits Technology Heterogeneity Since each service is independent, we can choose the right tools for the job, for example:</description>
     </item>
     <item>
       <title>Articles I Loved</title>
-      <link>https://example.org/posts/articles_i_loved/</link>
+      <link>http://localhost:1313/posts/articles_i_loved/</link>
       <pubDate>Tue, 18 Nov 2025 10:32:09 +0200</pubDate>
-      <guid>https://example.org/posts/articles_i_loved/</guid>
-      <description>&lt;h1 id=&#34;intro&#34;&gt;Intro&lt;/h1&gt;&#xA;&lt;p&gt;This is a list of articles that I loved. &lt;br&gt;&#xA;Maybe in the future I&amp;rsquo;ll sort these by subject :)&lt;/p&gt;&#xA;&lt;h1 id=&#34;articles-i-loved&#34;&gt;Articles I loved&lt;/h1&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://tidyfirst.substack.com/p/mastering-programming&#34;&gt;Mastering Programming - Kent Beck&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://www.nan.fyi/database?utm_source=substack&amp;amp;utm_medium=email&#34;&gt;Build your own Database - Nanda Syahrasyad&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
+      <guid>http://localhost:1313/posts/articles_i_loved/</guid>
+      <description>Intro This is a list of articles that I loved. Maybe in the future I&amp;rsquo;ll sort these by subject :)&#xA;Articles I loved Mastering Programming - Kent Beck Build your own Database - Nanda Syahrasyad </description>
     </item>
   </channel>
 </rss>

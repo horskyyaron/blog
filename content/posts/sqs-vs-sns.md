@@ -6,20 +6,20 @@ draft = false
 
 # Queus vs Pub/Sub
 
-As the journey of learning about microservice continues, there is concept of 
+As the journey of learning about microservice continues, there is a concept of 
 async collaboration between services.
 
 Why is that important? 
-Async communication allows for long running process to not hold the client, 
-it allows for snappier better user experience since we will update the client/UI
+Async communication allows for long running process to not block the client. 
+It allows for snappier, better user experience since we will update the client/UI
 immediately, and return the calculated answer later.
 
 E.g. sending the client an email.
-The user signs up, as part of the process we send the user an email, but, there
-shouldn't be any reason for the user to wait until that email has been sent.
+The user signs up, and as a part of the process we send the user an email. 
+There shouldn't be any reason for the user to wait until that email has been sent.
 So we immediately redirect him to the homepage while generating a job of "sending an email".
 
-Now comes the interesting part, and the detail here lays in WHO should care about this event?
+Now comes the interesting part, and the detail here lays in **WHO** should care about this event?
 
 In this simple case, only the email service should care about it, and if there are 
 number of instances of the email service, any instance taking care of the job is fair game.
